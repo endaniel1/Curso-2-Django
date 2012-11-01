@@ -1,0 +1,29 @@
+{% extends "lists.html" %}
+
+{% block column %}
+<thead>
+	<tr>
+		<th>Nro</th>
+		<th>Nombre</th>
+		<th>Opciones</th>
+	</tr>
+</thead>
+{% endblock %}
+
+{% block rows %}			
+			
+<tbody>
+	{% for category in object_list %}
+	<tr>
+		<td>{{category.id}}</td>
+		<td>{{category.name}}</td>
+		<td colspan="">
+			<button type="button" class="btn btn-warning"><span class="fa fa-edit"></span></button>
+
+			<button type="button" class="btn btn-danger"><span class="fa fa-trash-alt"></span></button>
+		</td>
+	</tr>
+	{% endfor %}
+</tbody>
+
+{% endblock %}

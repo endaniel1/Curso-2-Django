@@ -2,13 +2,18 @@ from django.db import models
 from datetime import datetime
 
 from core.erp.choices import gender_choices
-
+from django.forms import model_to_dict
 
 class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Nombre', unique=True)
 
     def __str__(self):
         return 'Nombre: {}'.format(self.name)
+
+    #Aqui este metodo para retornar los datos en formato json
+    def txtJson(self):
+        json = model_to_dict(self)#con model_to_dict retornamos el objeto en formato json
+        return json
 
     class Meta:
         verbose_name = 'Categoria'
