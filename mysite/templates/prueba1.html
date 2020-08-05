@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block title %}
+	Prueba 1
+{% endblock %}
+
+{% block content %}	
+	<div>
+		<ul>	
+		{% for category in categories %}
+			<li>{{category.name}}</li>
+		{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

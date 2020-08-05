@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block title %}
+	Prueba 2
+{% endblock %}
+
+
+{% block content %}
+	<ul>
+	{% for product in products %}
+		<li>{{product.name}} / {{product.pvp}}</li>
+	{% endfor %}
+	</ul>
+{% endblock %}
