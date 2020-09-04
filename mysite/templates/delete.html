@@ -1,0 +1,46 @@
+{% extends "body.html" %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+<form action="" method="post" accept-charset="utf-8" id="form"> 
+	{% csrf_token %}
+	<div class="card card-default">
+		<div class="card-header">
+			<h3 class="card-title">
+				<i class="fas fa-plus"></i>
+				{{title}}
+			</h3>
+		</div>
+		<input type="hidden" name="action" value="{{action}}">
+		
+		{% if form.errors %}
+		<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<h5><i class="icon fas fa-ban"></i> A ocurrido un error al guardar el registro!</h5>
+			<ul>
+			{% for field in form %}
+				{% for error in field.errors %}
+				<li>{{error}}</li>
+				{% endfor %}
+			{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+		<div class="alert alert-danger alert-dismissible">
+			<h5><i class="icon fas fa-ban"></i> Notificación!</h5>
+			¿Está seguro de eliminar el registro {{object.id}}?
+		</div>
+		<div class="card-footer">
+			<button type="submit" class="btn btn-primary btn-flat"id="btnButton" ><span class="fa fa-save"></span> Eliminación</button>
+		</div>
+		<div class="card-footer">
+			<a href="{{list_url}}" class="btn btn-info btn-flat"id="" ><span class="fa fa-stop"></span> Cancelar</a>
+		</div>
+	</div>	
+</form>
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}
+

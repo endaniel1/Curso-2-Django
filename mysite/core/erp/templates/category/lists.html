@@ -18,9 +18,9 @@
 		<td>{{category.id}}</td>
 		<td>{{category.name}}</td>
 		<td colspan="">
-			<button type="button" class="btn btn-warning"><span class="fa fa-edit"></span></button>
+			<a href="{% url 'category_update' pk=category.id %}" class="btn btn-warning"><span class="fa fa-edit"></span></a>
 
-			<button type="button" class="btn btn-danger"><span class="fa fa-trash-alt"></span></button>
+			<a href="{% url 'category_delete' pk=category.id %}" class="btn btn-danger"><span class="fa fa-trash-alt"></span></a>
 		</td>
 	</tr>
 	{% endfor %}
